@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby  
 
+require './lib/environment.rb'
+
 SwellRetreats::CLI.new.call 
 
 

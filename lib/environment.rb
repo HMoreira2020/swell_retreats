@@ -1,6 +1,4 @@
-require "swell_retreats/version"
+require_relative "./swell_retreats/version"
+require_relative "./swell_retreats/cli" 
 
-module SwellRetreats
-  class Error < StandardError; end
-  # Your code goes here...
-end
+
