@@ -10,9 +10,10 @@ class SwellRetreats::Retreat
   
   def self.all 
     @@all
+    #this will have to call the scrape_home_page method to work
   end
    
-  
+  #scrape SwellWomen site and return retreats based on that data 
   retreat_1 = self.new 
   retreat_1.name = "shortboard" 
   retreat_1.price = "$2" 
