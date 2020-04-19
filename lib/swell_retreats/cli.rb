@@ -18,13 +18,15 @@ class SwellRetreats::CLI
   def retreat_menu  
     input = '' 
     until input == "exit" 
-      puts "Enter which retreat you'd like to see more about or type exit:"
+      puts "Enter which retreat you'd like to see more about or list to see the list again or type exit:"
       input = gets.chomp.downcase 
       case input 
       when "1" 
         puts "See more on retreat 1.." 
       when "2" 
         puts "see more on retreat 2..."
+      when "list" 
+        list_retreats 
       end 
     end 
   end 
