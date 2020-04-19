@@ -1,4 +1,4 @@
-class SwellRetreat::Retreat 
+class SwellRetreats::Retreat 
   attr_accessor :name, :location, :dates, :price, :description, :availability 
   
   @@all = [] 
