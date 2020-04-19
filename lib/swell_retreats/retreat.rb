@@ -9,14 +9,12 @@ class SwellRetreats::Retreat
   
   
   def self.all 
-    #should retreat a bunch of instances of Retreat 
-     puts <<-DOC.gsub /^\s*/,''
-      1. April 19 - 25, 2020	Rote Island Surf & Yoga Retreat (open to men & women)
-      2. April 19 - 23, 2020	SwellWomen Mexico Surf & Yoga April #1
-    DOC
+    @@all
+  end
+   
   
   retreat_1 = self.new 
-  retreat_1.name = "" 
+  retreat_1.name = "shortboard" 
   retreat_1.price = "$2" 
   retreat_1.availability = "open" 
   retreat_1.location = "costa rica"
@@ -24,6 +22,15 @@ class SwellRetreats::Retreat
   retreat_1.dates = "may 4 - 10" 
   retreat_1.url = "https://www.swellwomen.com/trips/726/rote-island-surf-yoga-retreat-open-to-men-women/"
   
-  [retreat_1] 
-  end 
+  retreat_2 = self.new 
+  retreat_2.name = "longboard" 
+  retreat_2.price = "$3" 
+  retreat_2.availability = "open" 
+  retreat_2.location = "costa rica"
+  retreat_2.description = "stellar!" 
+  retreat_2.dates = "may 20 - 24" 
+  retreat_2.url = "https://www.swellwomen.com/trips/726/rote-island-surf-yoga-retreat-open-to-men-women/"
+  
+
+  
 end 
