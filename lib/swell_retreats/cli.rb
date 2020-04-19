@@ -27,6 +27,8 @@ class SwellRetreats::CLI
         puts "see more on retreat 2..."
       when "list" 
         list_retreats 
+      else 
+        puts "I'm not sure what you want, please enter list or exit:" 
       end 
     end 
   end 
