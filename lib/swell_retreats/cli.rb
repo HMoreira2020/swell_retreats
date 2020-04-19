@@ -9,6 +9,7 @@ class SwellRetreats::CLI
   def list_retreats
     puts "Here are our upcoming Swell Women's Retreats:"
     @retreats = SwellRetreats::Retreat.all 
+    # binding.pry
   end
       
 

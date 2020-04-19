@@ -3,7 +3,7 @@ class SwellRetreats::Retreat
   
   @@all = [] 
   
-  def initialize(attributes)
+  def initialize
     @@all << self 
   end 
   
