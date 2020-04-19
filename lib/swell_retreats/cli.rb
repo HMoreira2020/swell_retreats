@@ -17,16 +17,14 @@ class SwellRetreats::CLI
     input = '' 
     until input == "exit" 
       puts "Enter which retreat you'd like to see more about or list to see the list again or type exit:"
-      input = gets.chomp.downcase 
-      case input 
-      when "1" 
-        puts "See more on retreat 1.." 
-      when "2" 
-        puts "see more on retreat 2..."
-      when "list" 
-        list_retreats 
+      input = gets.strip.downcase 
+      
+      if input.to_i > 0 
+        puts @retreats[input.to_i - 1]  #selects the retreat off the list at the corresponding index
+      elsif input == "list" 
+        list_retreats
       else 
-        puts "I'm not sure what you want, please enter list or exit:" 
+        puts "I'm not sure what you want, please enter list or exit:"
       end 
     end 
   end 
