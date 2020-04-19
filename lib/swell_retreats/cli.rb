@@ -12,6 +12,7 @@ class SwellRetreats::CLI
       1. April 19 - 25, 2020	Rote Island Surf & Yoga Retreat (open to men & women)
       2. April 19 - 23, 2020	SwellWomen Mexico Surf & Yoga April #1
     DOC
+    @retreats = SwellRetreats::Retreat.all 
   end
       
 
