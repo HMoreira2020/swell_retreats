@@ -17,12 +17,13 @@ class SwellRetreats::CLI
 
   def retreat_menu  
     input = '' 
-    until input == "exit" 
+    until input != "exit" 
       puts "Enter which retreat you'd like to see more about or list to see the list again or type exit:"
       input = gets.strip.downcase 
       
       if input.to_i > 0 
-        puts @retreats[input.to_i - 1]  #selects the retreat off the list at the corresponding index
+        the_retreat = @retreats[input.to_i - 1]
+        puts "#{the_retreat.name} - #{the_retreat.dates} - #{the_retreat.price} - #{the_retreat.description}"
       elsif input == "list" 
         list_retreats
       else 
