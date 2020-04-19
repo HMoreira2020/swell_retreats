@@ -1,0 +1,34 @@
+Swell Retreats CLI Gem 
+
+1. Start with the entry point - the file run 
+2. force that to build the CLI interface 
+3. stub our the interface 
+4. start making things real 
+5. discover objects 
+6. program 
+
+
+Command line interface for Swell Women's Surf Retreats 
+Show a list of retreats 
+
+1. April 19 - 25, 2020	Rote Island Surf & Yoga Retreat (open to men & women)	
+2. April 19 - 23, 2020	SwellWomen Mexico Surf & Yoga April #1	
+3. May 3 - 9, 2020	SwellWomen Costa Rica Surf, Yoga & Live Bliss Coaching Retreat	
+4. May 10 - 16, 2020	Costa Rica Surf, Yoga & Live Bliss Coaching Retreat	
+5. August 16 - 22, 2020	SwellWomen Maui Surf, Yoga & Live Bliss Coaching	
+6. August 30 - September 5, 2020	SwellWomen Maui Surf, Yoga & Live Bliss Coaching	
+7. September 20 - 26, 2020	Rote Island Surf & Yoga Retreat (open to men & women)	
+8. October 18 - 24, 2020	Bali ~ Women’s Empowerment Retreat: Brain-Mind-Body Connections	
+9. November 22 - 28, 2020	El Salvador Surf & Yoga w/ Leadership Coaching (open to men & women)	
+10. May 2 - 8, 2021	Costa Rica Surf, Yoga & Live Bliss Coaching Retreat CR121	
+
+Which Retreat would you like to learn more about? 
+
+What is a retreat? 
+a retreat has a name 
+a retreat has a location 
+a retreat has a date
+a retreat has a price 
+a retreat has a description 
+a retreat has availability 
+
