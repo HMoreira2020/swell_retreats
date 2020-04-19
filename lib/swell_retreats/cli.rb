@@ -1,12 +1,12 @@
 class SwellRetreats::CLI 
   def call 
     puts "Welcome to Swell Women's Surf Retreats" 
-    list_retreat
-    list_of_retreats
-    goodbye 
+    list_retreats
+    retreat_menu
+    goodbye  
   end 
   
-  def list_retreat 
+  def list_retreats
     puts "Here are our upcoming Swell Women's Retreats:"
     puts <<-DOC.gsub /^\s*/,''
       1. April 19 - 25, 2020	Rote Island Surf & Yoga Retreat (open to men & women)
@@ -15,10 +15,10 @@ class SwellRetreats::CLI
   end
       
 
-  def list_of_retreats 
-    puts "Enter which retreat you'd like to know more about or type exit:"
+  def retreat_menu  
     input = '' 
-    until input = "exit" 
+    until input == "exit" 
+      puts "Enter which retreat you'd like to see more about or type exit:"
       input = gets.chomp.downcase 
       case input 
       when "1" 
