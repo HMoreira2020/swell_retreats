@@ -8,10 +8,6 @@ class SwellRetreats::CLI
   
   def list_retreats
     puts "Here are our upcoming Swell Women's Retreats:"
-    puts <<-DOC.gsub /^\s*/,''
-      1. April 19 - 25, 2020	Rote Island Surf & Yoga Retreat (open to men & women)
-      2. April 19 - 23, 2020	SwellWomen Mexico Surf & Yoga April #1
-    DOC
     @retreats = SwellRetreats::Retreat.all 
   end
       
