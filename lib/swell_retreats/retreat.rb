@@ -1,5 +1,5 @@
 class SwellRetreats::Retreat 
-  attr_accessor :name, :location, :dates, :price, :description, :availability 
+  attr_accessor :name, :location, :dates, :price, :description, :availability, :url 
   
   @@all = [] 
   
@@ -16,4 +16,14 @@ class SwellRetreats::Retreat
     DOC
   end 
   
+  retreat_1 = self.new 
+  retreat_1.name = "" 
+  retreat_1.price = "$2" 
+  retreat_1.availability = "open" 
+  retreat_1.location = "costa rica"
+  retreat_1.description = "amazing!" 
+  retreat_1.dates = "may 4 - 10" 
+  retreat_1.url = "https://www.swellwomen.com/trips/726/rote-island-surf-yoga-retreat-open-to-men-women/"
+  
+  @@all = [retreat_1. retreat_2] 
 end 
