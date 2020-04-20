@@ -4,20 +4,21 @@ class SwellRetreats::Retreat
   @@all = [] 
   
   def initialize(retreat_hash) 
-    retreat_hash.each{|key, value| self.send(("#{key}="), value)}
+    #retreat_hash.each{|key, value| self.send(("#{key}="), value)}
     @@all << self 
   end 
   
-  def self.create_from collection(retreats_array) 
-    #will iterate over the array of retreat_hashes and create new retreat objects with name, location, date adn availability
+  def self.create_from_collection(retreats_array) 
+    #will iterate over the array of retreat_hashes and create new retreat objects with name, location, date and availability
   end 
   
-  self.add_more_details(attributes_hash)
+  def self.add_more_details(attributes_hash)
   #will add new attributes to a retreat using the data scraped from a retreats page. attributes_hash will equal selfScraper.scrape_retreat_details 
-end 
+  end 
+  
   def self.all 
     @@all
-    #this will have to call the scrape_home_page method to work
+    
   end
    
   #scrape SwellWomen site and return retreats based on that data 
@@ -40,5 +41,4 @@ end
   retreat_2.url = "https://www.swellwomen.com/trips/726/rote-island-surf-yoga-retreat-open-to-men-women/"
   
 
-  
 end 
