@@ -18,7 +18,7 @@ class SwellRetreats::Scraper
         :name => retreat.css("td.rs-title").text,
         :dates => retreat.css("td.rs-dates").text,
         :availability => retreat.css("td.rs-availability-words").text, 
-        :url => retreat.css("td.rs-show-more-link a").attribute("href").text,
+        :url => retreat.css("td.rs-show-more-link a").attribute("href")
       }
       retreats_array << retreat_hash 
     end
