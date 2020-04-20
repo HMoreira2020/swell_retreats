@@ -3,7 +3,8 @@ class SwellRetreats::Retreat
   
   @@all = [] 
   
-  def initialize
+  def initialize(retreat_hash) 
+    retreat_hash.each{|key, value| self.send(("#{key}="), value)}
     @@all << self 
   end 
   
