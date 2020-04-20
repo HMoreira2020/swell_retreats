@@ -3,8 +3,8 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-class SwellRetreats::Scraper 
-  attr_accessor :name, :location, :dates, :description, :single_price, :double_price, :availability, :retreat_url   
+class SwellRetreats::Scraper
+  attr_accessor :name, :location, :dates, :description, :single_price, :double_price, :availability, :url   
   
   #iterates over retreats on swellpage and creates a nested retreat_hash for each retreat and pushes it into the retreats_array 
   def self.scrape_retreat_page(sweLl_site)
@@ -23,6 +23,8 @@ class SwellRetreats::Scraper
     retreats_array
   end 
   
+  
+  
 #scrapes a retreats page and creates a hash of retreat_details 
   def self.scrape_retreat_details(retreat_url) 
     page = Nokogiri::HTML(open(retreat_url))
@@ -35,6 +37,10 @@ class SwellRetreats::Scraper
  
     }
   end   
+  
+  # def self.make_retreats
+  #   self.scrape_home_page #iterate over retreats_array to create new objects.
+  # end 
 
 end 
 

@@ -1,9 +1,9 @@
 class SwellRetreats::Retreat 
-  attr_accessor :name, :location, :dates, :price, :description, :availability, :retreat_url 
+  attr_accessor :name, :location, :dates, :price, :description, :availability, :url 
   
   @@all = [] 
   
-  def initialize(retreat_hash) 
+  def initialize #(retreat_hash) 
     #retreat_hash.each{|key, value| self.send(("#{key}="), value)}
     @@all << self 
   end 
@@ -22,7 +22,7 @@ class SwellRetreats::Retreat
   end
    
   #scrape SwellWomen site and return retreats based on that data 
-  retreat_1 = self.new 
+  retreat_1 = self.new
   retreat_1.name = "shortboard" 
   retreat_1.price = "$2" 
   retreat_1.availability = "open" 

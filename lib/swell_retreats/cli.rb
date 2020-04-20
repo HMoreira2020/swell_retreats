@@ -17,7 +17,7 @@ class SwellRetreats::CLI
 
   def retreat_menu  
     input = '' 
-    until input != "exit" 
+    until input == "exit" 
       puts "Enter which retreat you'd like to see more about or list to see the list again or type exit:"
       input = gets.strip.downcase 
       
