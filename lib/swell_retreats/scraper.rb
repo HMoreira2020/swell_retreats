@@ -8,19 +8,17 @@ class SwellRetreats::Scraper
   
 
   def self.scrape_home_page(site)
-    site = "https://www.swellwomen.com/portfolios/coaching-retreats/"
+    #site = "https://www.swellwomen.com/portfolios/coaching-retreats/"
     page = Nokogiri::HTML(open(site))
-    retreats_array = []
+    retreats_array = 
+    binding.pry 
   
     page.css("div.inner").collect do |retreat| 
       retreat_hash = {
         :name => retreat.css("td.rs-title").text,
-        :location => retreat.css().text, 
-        :dates => retreat.css().text,
-        :price => retreat.css(),
-        :description => retreat.css().text,
-        :availability => retreat.css().text, 
-        :url => retreat.css().text,
+        :dates => retreat.css("td.rs-dates").text,
+        :availability => retreat.css("td.rs-availability-words").text, 
+        :url => retreat.css("td.rs-show-more-link a").attribute("href").text,
       }
       retreats_array << retreat_hash 
     end
@@ -29,4 +27,7 @@ class SwellRetreats::Scraper
   
 end 
 
+:price => retreat.css(),
+:location => retreat.css().text, 
+:description => retreat.css().text,
 
