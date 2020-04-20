@@ -38,11 +38,11 @@ class SwellRetreats::Scraper
     }
   end   
   
-  def self.make_retreats #iterate over retreats_array to create new objects. call in CLI#list_retreats
-    self.scrape_home_page.each.with_index(1) do |retreat, index| 
-      puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.availability}"
-    end 
-  end
+  # def self.make_retreats #iterate over retreats_array to create new objects. call in CLI#list_retreats
+  #   self.scrape_home_page.collect do |retreat|
+  #     puts "#{retreat[:name]}"
+  #   end 
+  # end
   
   
 

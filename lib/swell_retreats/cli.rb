@@ -8,10 +8,12 @@ class SwellRetreats::CLI
   
   def list_retreats
     puts "Here are our upcoming Swell Women's Retreats:"
-    @retreats = SwellRetreats::Retreat.all 
-    @retreats.each.with_index(1) do |retreat, index| 
-      puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.price} - #{retreat.description}"
-    end
+    @retreats = SwellRetreats::Scraper.make_retreats 
+    @retreats 
+    # @retreats = SwellRetreats::Retreat.all 
+    # @retreats.each.with_index(1) do |retreat, index| 
+    #   puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.price} - #{retreat.description}"
+    # end
   end
       
 
