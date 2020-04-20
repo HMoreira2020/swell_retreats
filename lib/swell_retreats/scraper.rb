@@ -6,7 +6,7 @@ require 'pry'
 class SwellRetreats::Scraper 
   attr_accessor :name, :location, :dates, :description, :single_price, :double_price, :availability, :retreat_url   
   
-
+  #iterates over retreats on swellpage and creates a nested retreat_hash for each retreat and pushes it into the retreats_array 
   def self.scrape_retreat_page(sweLl_site)
     #swell_site = "https://www.swellwomen.com/portfolios/coaching-retreats/"
     page = Nokogiri::HTML(open(site))
@@ -23,10 +23,10 @@ class SwellRetreats::Scraper
     retreats_array
   end 
   
-
+#scrapes a retreats page and creates a hash of retreat_details 
   def self.scrape_retreat_details(retreat_url) 
     page = Nokogiri::HTML(open(retreat_url))
-    retreat_hash = {
+    retreat_details_hash = {
     :name => page.css(), 
     :location => page.css().text,
     :description => page.css().text,
