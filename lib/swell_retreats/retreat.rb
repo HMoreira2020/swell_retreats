@@ -15,7 +15,13 @@ class SwellRetreats::Retreat
   
   def self.see_more_details(attributes_hash)
     retreat_hash = results from Scraper.scrape_retreat_details #which is a hash of key/values representing the retreats info 
-    retreat_hash.each do |key, value| self.send(("#{key}:"), value)}
+    iterate over the retreat hash and 
+    puts "retreat_details_hash[:program_name]" 
+    puts "retreat_details_hash[:accomodations]"
+    puts "retreat_details_hash[:description]"
+    puts "retreat_details_hash[:single_price]"
+    puts "retreat_details_hash[:double_price]"
+    #retreat_hash.each do |key, value| self.send(("#{key}:"), value)}
   end 
   
   def self.all 

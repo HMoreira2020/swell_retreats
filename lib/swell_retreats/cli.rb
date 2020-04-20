@@ -25,6 +25,7 @@ class SwellRetreats::CLI
       
       if input.to_i > 0 
         the_retreat = @retreats[input.to_i - 1]
+        #call see_more_details method that puts out additional info scraped from retreat page 
         puts "#{the_retreat.name} - #{the_retreat.dates} - #{the_retreat.price} - #{the_retreat.description}"
       elsif input == "list" 
         list_retreats
