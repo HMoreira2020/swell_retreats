@@ -20,8 +20,9 @@ class SwellRetreats::Retreat
   
   def self.all 
     @@all
-    
   end
+  
+  
    
   #scrape SwellWomen site and return retreats based on that data 
   # retreat_1 = self.new
