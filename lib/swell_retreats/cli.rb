@@ -1,20 +1,25 @@
-class SwellRetreats::CLI 
+require_relative "./swell_retreats/retreat" 
+require_relative "./swell_retreats/scraper"
+
+class CLI 
   def call 
     puts "Welcome to Swell Women's Surf Retreats" 
+    make_retreats 
     list_retreats
     retreat_menu
     goodbye  
   end 
   
-  def list_retreats
-    #should now iterate over Retreat.all or the return of Scraper.scrape_homepage array to puts out retreat name, dates, as the list from which the user chooses which retreat to see more about.  
-    puts "Here are our upcoming Swell Women's Retreats:"
+  def make_retreats
     retreats_array = Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/") 
-    Retreats.create_from_collection(retreats_array) 
+    Retreat.create_from_collection(retreats_array) 
+  end
+  
+  def list_retreats 
+    puts "Here are our upcoming Swell Women's Retreats:"
     Retreat.all.each.with_index(1) do |retreat, index| 
       puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.availability}"
     end
-  end
       
 
   def retreat_menu  
