@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-class SwellRetreats::Scraper
+class Scraper
   attr_accessor :name, :location, :dates, :description, :single_price, :double_price, :availability, :url 
   
  
@@ -11,19 +11,20 @@ class SwellRetreats::Scraper
     #swell_site = "https://www.swellwomen.com/portfolios/coaching-retreats/"
     page = Nokogiri::HTML(open(site))
     retreats_array = []
-    page.css("div.inner").collect do |retreat| 
-      retreats_hash = {
+    page.css("tbody tr").collect do |retreat| 
+      retreat_hash = {
         :name => retreat.css("td.rs-title").text,
         :dates => retreat.css("td.rs-dates").text,
         :availability => retreat.css("td.rs-availability-words").text, 
-        :retreat_url => retreat.css("td.rs-show-more-link a").attribute("href")
+        # :retreat_url => retreat.css("td.rs-show-more-link a").attribute("href").value
       }
-      retreats_array << retreats_hash 
+      retreats_array << retreat_hash 
+      binding.pry 
     end
     retreats_array
   end 
   
-  
+  self.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/")
   
 #scrapes a retreats page and creates a hash of retreat_details 
   def self.scrape_retreat_details(retreat_url) 
@@ -34,7 +35,6 @@ class SwellRetreats::Scraper
     retreat_details_hash[:description] = page.css().text,
     retreat_details_hash[:single_price] = page.css(),
     retreat_details_hash[:double_price] = page.css()
-    }
     retreat_details_hash 
   end   
   
