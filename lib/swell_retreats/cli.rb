@@ -21,23 +21,22 @@ class CLI
       puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.availability}"
     end
   end
-  
-  # should this be in retreat clasS?     
-  # def add_details_to_retreats
-  #   Retreat.all.each do |retreat| 
-  #     details = Scraper.scrape_retreat_details(retreat_url) #where do I get this url if it varies based on what they enter in the cli 
-  #     Retreat.add_more_details(details)
-  #   end 
-  # end 
-      
-  # def see_more_details
-  #   Retreats
-  # end 
 
+  def add_details_to_retreats #sends to retreat#add_retreat_details which needs the details_hash argument 
+    Retreat.all.each do |retreat| 
+      details_hash = Scraper.scrape_retreat_details(retreat.url) #can I have retreat.url as an argument here?
+      retreat.add_retreat_details(details_hash)
+    end 
+  end 
+  
+  
   def retreat_menu  
     input = '' 
     until input == "exit" 
-      puts "Enter which retreat you'd like to see more about or list to see the list again or type exit:"
+      puts "Menu options:" 
+      puts "Type the number of retreat you'd like to see more about"
+      puts "Type 'list' to see the list again" 
+      puts "exit" 
       input = gets.strip.downcase 
       
       if input.to_i > 0 
@@ -49,6 +48,8 @@ class CLI
         puts "#{the_retreat.description}"
       elsif input == "list" 
         list_retreats
+      elsif input == "exit"
+        exit 
       else 
         puts "I'm not sure what you want, please enter list or exit:"
       end 
