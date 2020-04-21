@@ -45,7 +45,7 @@ class CLI
       
       if input.to_i > 0 
         the_retreat = Retreat.all[input.to_i - 1]
-        
+        #add_retreat_details here 
         puts "Program Name: #{the_retreat.program_name}" 
         puts "Dates: #{the_retreat.program_date}" 
         puts "Location: #{the_retreat.location}" 
