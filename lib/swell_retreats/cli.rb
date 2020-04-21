@@ -9,9 +9,10 @@ class SwellRetreats::CLI
   def list_retreats
     #should now iterate over Retreat.all or the return of Scraper.scrape_homepage array to puts out retreat name, dates, as the list from which the user chooses which retreat to see more about.  
     puts "Here are our upcoming Swell Women's Retreats:"
-    @retreats = SwellRetreats::Retreat.all 
-    @retreats.each.with_index(1) do |retreat, index| 
-      puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.price} - #{retreat.description}"
+    retreats_array = Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/") 
+    Retreats.create_from_collection(retreats_array) 
+    Retreat.all.each.with_index(1) do |retreat, index| 
+      puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.availability}"
     end
   end
       
@@ -23,9 +24,9 @@ class SwellRetreats::CLI
       input = gets.strip.downcase 
       
       if input.to_i > 0 
-        the_retreat = @retreats[input.to_i - 1]
+        the_retreat = Retreat.all[input.to_i - 1]
         #call see_more_details method that puts out additional info scraped from retreat page 
-        puts "#{the_retreat.name} - #{the_retreat.dates} - #{the_retreat.price} - #{the_retreat.description}"
+        puts "#{the_retreat.program_name} - #{the_retreat.program_date} - #{the_retreat.price} - #{the_retreat.description}"
       elsif input == "list" 
         list_retreats
       else 

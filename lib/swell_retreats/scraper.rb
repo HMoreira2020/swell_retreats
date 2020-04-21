@@ -34,7 +34,6 @@ class Scraper
       :single_price => page.css("div.rs-program-price ul li:nth-child(n+2)").text.strip,
       :double_price => page.css("div.rs-program-price ul li").first.text.strip 
     }
-    binding.pry
     retreat_details_hash 
   end   
   

@@ -1,5 +1,6 @@
+require_relative "../swell_retreats/scraper.rb"
 class Retreat 
-  attr_accessor :name, :location, :dates, :price, :description, :availability, :url, :program_name, :program_date, :locati:single_price, :double_price 
+  attr_accessor :name, :location, :dates, :price, :description, :availability, :url, :program_name, :program_date, :location, :single_price, :double_price 
   
   @@all = [] 
   
@@ -9,13 +10,13 @@ class Retreat
   end 
   
   def self.create_from_collection(retreats_array) 
-    retreats_array.each{|retreat| Retreat.new(retreat_hash)}  
+    retreats_array.each{|retreat| Retreat.new(retreat)}  
     #which sends it to initialize where each key/value pair is assigned as the objects attributes, AND adds the retreat to @@all array so all retreat objects are in @@all. make sure the attr_accessors match
   end 
   
   def self.see_more_details(attributes_hash)
     retreat_hash = results from Scraper.scrape_retreat_details #which is a hash of key/values representing the retreats info 
-    iterate over the retreat hash and 
+    iterate over the retreat hash  to list more details about retreat 
     # puts "retreat_details_hash[:program_name]" 
     # puts "retreat_details_hash[:accomodations]"
     # puts "retreat_details_hash[:description]"
@@ -25,9 +26,12 @@ class Retreat
   end 
   
   def self.all 
-    @@all
+    @@all.uniq 
   end
   
 
 
 end 
+
+retreats_array = Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/")
+Retreat.create_from_collection(retreats_array)
