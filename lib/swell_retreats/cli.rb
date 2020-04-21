@@ -7,7 +7,7 @@ class SwellRetreats::CLI
   end 
   
   def list_retreats
-    #should now iterate over Retreat.all to puts out retreat name, dates, etc. 
+    #should now iterate over Retreat.all or the return of Scraper.scrape_homepage array to puts out retreat name, dates, as the list from which the user chooses which retreat to see more about.  
     puts "Here are our upcoming Swell Women's Retreats:"
     @retreats = SwellRetreats::Retreat.all 
     @retreats.each.with_index(1) do |retreat, index| 
