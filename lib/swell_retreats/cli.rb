@@ -28,15 +28,20 @@ class CLI
   def list_retreats 
     puts "Here are our upcoming Swell Women's Retreats:"
     Retreat.all.each.with_index(1) do |retreat, index| 
+      puts ""
       puts "#{index}. #{retreat.name} - #{retreat.dates}"
+      puts "" 
     end
   end
 
+  #def list_more_details(the_retreat)
+  #make listing out more details a method to call when they enter the number they want to see 
+  #end 
   
   def retreat_menu  
     input = '' 
     until input == "exit" 
-      puts "Type the number of retreat you'd like to see more about"
+      puts "Type the number of retreat you'd like to see more about:"
       input = gets.strip.downcase 
       
       if input.to_i > 0 
@@ -49,7 +54,7 @@ class CLI
         puts "Single-Occupancy Price: #{the_retreat.single_price}" 
         puts "Double-Occupancy Price: #{the_retreat.double_price}" 
         puts "Availability: #{the_retreat.availability}"
-        puts "Would you like to see the list again?" 
+        puts "Would you like to see the list again? " 
       elsif input == "y" 
         list_retreats
       elsif input == "exit" || "n" 
