@@ -6,6 +6,7 @@ class CLI
     puts "Welcome to Swell Women's Surf Retreats" 
     make_retreats 
     list_retreats
+    add_details_to_retreats
     retreat_menu
     goodbye  
   end 
@@ -15,37 +16,39 @@ class CLI
     Retreat.create_from_collection(retreats_array) 
   end
   
-  def list_retreats 
-    puts "Here are our upcoming Swell Women's Retreats:"
-    Retreat.all.each.with_index(1) do |retreat, index| 
-      puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.availability}"
-    end
-  end
-
-  def add_details_to_retreats #sends to retreat#add_retreat_details which needs the details_hash argument 
+   def add_details_to_retreats #sends to retreat#add_retreat_details which needs the details_hash argument 
     Retreat.all.each do |retreat| 
       details_hash = Scraper.scrape_retreat_details(retreat.url) #can I have retreat.url as an argument here?
       retreat.add_retreat_details(details_hash)
     end 
   end 
   
+  def list_retreats 
+    puts "Here are our upcoming Swell Women's Retreats:"
+    Retreat.all.each.with_index(1) do |retreat, index| 
+      puts "#{index}. #{retreat.name} - #{retreat.dates}"
+    end
+  end
+
   
   def retreat_menu  
     input = '' 
     until input == "exit" 
-      puts "Menu options:" 
       puts "Type the number of retreat you'd like to see more about"
-      puts "Type 'list' to see the list again" 
-      puts "exit" 
+      puts "Or type 'list' to see the list again"
+      puts "Or type 'exit' to exit the program" 
       input = gets.strip.downcase 
       
       if input.to_i > 0 
         the_retreat = Retreat.all[input.to_i - 1]
-        #build Retreat#add_more_details method to add these attributes to each retreat object 
-        puts "#{the_retreat.program_name}" 
-        puts "#{the_retreat.program_date}" 
-        puts "#{the_retreat.location}" 
-        puts "#{the_retreat.description}"
+        
+        puts "Program Name: #{the_retreat.program_name}" 
+        puts "Dates: #{the_retreat.program_date}" 
+        puts "Location: #{the_retreat.location}" 
+        puts "Description: #{the_retreat.description}"
+        puts "Single-Occupancy Price: #{the_retreat.single_price}" 
+        puts "Double-Occupancy Price: #{the_retreat.double_price}" 
+        puts "Availability: #{the_retreat.availability}"
       elsif input == "list" 
         list_retreats
       elsif input == "exit"
