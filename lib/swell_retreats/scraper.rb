@@ -32,8 +32,9 @@ class Scraper
     retreat_details_hash[:program_name]= page.css("h1.rs-program-title").text.strip, 
     retreat_details_hash[:description] = page.css("p.rs-program-datetime").text.strip,
     retreat_details_hash[:program_date] = page.css("p.rs-program-date").text.strip,
-    retreat_details_hash[:single_price] = page.css("div.rs-program-price ul li:nth-child(n+2)").text,
-    retreat_details_hash[:double_price] = page.css("div.rs-program-price ul li").first.text 
+    retreat_details_hash[:location] = page.css("p.rs-program-location").text.strip,
+    retreat_details_hash[:single_price] = page.css("div.rs-program-price ul li:nth-child(n+2)").text.strip,
+    retreat_details_hash[:double_price] = page.css("div.rs-program-price ul li").first.text.strip 
     retreat_details_hash 
   end   
   
