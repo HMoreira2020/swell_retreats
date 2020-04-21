@@ -9,7 +9,7 @@ class SwellRetreats::CLI
   def list_retreats
     #should now iterate over Retreat.all to puts out retreat name, dates, etc. 
     puts "Here are our upcoming Swell Women's Retreats:"
-    @retreats = SwellRetreats::Retreats.all 
+    @retreats = SwellRetreats::Retreat.all 
     @retreats.each.with_index(1) do |retreat, index| 
       puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.price} - #{retreat.description}"
     end
