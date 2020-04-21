@@ -4,7 +4,7 @@ require 'open-uri'
 require 'pry'
 
 class Scraper
-  attr_accessor :name, :location, :dates, :description, :single_price, :double_price, :availability, :url 
+  attr_accessor :name, :dates, :availability, :url 
   
  
   def self.scrape_homepage(site)
