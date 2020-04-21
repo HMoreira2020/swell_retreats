@@ -25,8 +25,11 @@ class SwellRetreats::CLI
       
       if input.to_i > 0 
         the_retreat = Retreat.all[input.to_i - 1]
-        #call see_more_details method that puts out additional info scraped from retreat page 
-        puts "#{the_retreat.program_name} - #{the_retreat.program_date} - #{the_retreat.price} - #{the_retreat.description}"
+        #build Retreat#add_more_details method to add these attributes to each retreat object 
+        puts "#{the_retreat.program_name}" 
+        puts "#{the_retreat.program_date}" 
+        puts "#{the_retreat.location}" 
+        puts "#{the_retreat.description}"
       elsif input == "list" 
         list_retreats
       else 
