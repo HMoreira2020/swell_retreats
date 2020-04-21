@@ -28,19 +28,21 @@ class Scraper
 #scrapes a retreats page and creates a hash of retreat_details 
   def self.scrape_retreat_details(retreat_url) 
     page = Nokogiri::HTML(open(retreat_url))
-    retreat_details_hash = {}
-    retreat_details_hash[:program_name]= page.css("h1.rs-program-title").text.strip, 
-    retreat_details_hash[:description] = page.css("p.rs-program-datetime").text.strip,
-    retreat_details_hash[:program_date] = page.css("p.rs-program-date").text.strip,
-    retreat_details_hash[:location] = page.css("p.rs-program-location").text.strip,
-    retreat_details_hash[:single_price] = page.css("div.rs-program-price ul li:nth-child(n+2)").text.strip,
-    retreat_details_hash[:double_price] = page.css("div.rs-program-price ul li").first.text.strip 
+    retreat_details_hash = {
+      :program_name => page.css("h1.rs-program-title").text.strip, 
+      :description => page.css("p.rs-program-datetime").text.strip,
+      :program_date => page.css("p.rs-program-date").text.strip,
+      :location => page.css("p.rs-program-location").text.strip,
+      :single_price => page.css("div.rs-program-price ul li:nth-child(n+2)").text.strip,
+      :double_price => page.css("div.rs-program-price ul li").first.text.strip 
+    }
     retreat_details_hash 
+    binding.pry 
   end   
   
 
 end 
 
-self.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/")
-self.scrape_retreat_details("https://www.swellwomen.com/trips/772/swellwomen-maui-surf-yoga-live-bliss-coaching/")
+Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/")
+Scraper.scrape_retreat_details("https://www.swellwomen.com/trips/740/costa-rica-surf-yoga-live-bliss-coaching-retreat/")
 
