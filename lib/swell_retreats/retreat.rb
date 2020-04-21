@@ -1,16 +1,15 @@
 class Retreat 
-  attr_accessor :name, :location, :dates, :price, :description, :availability, :url 
+  attr_accessor :name, :location, :dates, :price, :description, :availability, :url, :program_name, :program_date, :locati:single_price, :double_price 
   
   @@all = [] 
   
-  def initialize #(retreat_hash) 
-    #retreat_hash.each{|key, value| self.send(("#{key}="), value)}
+  def initialize(retreat_hash) 
+    retreat_hash.each{|key, value| self.send(("#{key}="), value)}
     @@all << self 
   end 
   
   def self.create_from_collection(retreats_array) 
-    retreats_array = results from Scraper.scare_homepage(site) 
-    retreats_array.each{|retreat| retreat = Self.new}  #which sends it to initialize where each key/value pair is assigned as the objects attributes, AND it adds it to the @@all array so all retreat objects are in @@all. make sure the attr_accessors match} 
+    retreats_array.each{|retreat| Retreat.new(retreat_hash)}  #which sends it to initialize where each key/value pair is assigned as the objects attributes, AND it adds it to the @@all array so all retreat objects are in @@all. make sure the attr_accessors match} 
   end 
   
   def self.see_more_details(attributes_hash)
