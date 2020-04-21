@@ -8,7 +8,6 @@ class CLI
     add_details_to_retreats
     list_retreats
     retreat_menu
-    add_details_to_retreats
     goodbye  
   end 
   
@@ -57,7 +56,7 @@ class CLI
         puts "Would you like to see the list again? " 
       elsif input == "y" 
         list_retreats
-      elsif input == "exit" || "n" 
+      elsif input == "exit" || input == "n" 
         exit 
       else 
         puts "I'm not sure what you want, please enter list or exit:"
@@ -70,3 +69,4 @@ class CLI
     puts "See you on your next Swell Retreat!" 
   end 
 end
+

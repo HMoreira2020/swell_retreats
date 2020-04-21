@@ -27,5 +27,4 @@ class Retreat
 
 end 
 
-retreats_array = Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/")
-Retreat.create_from_collection(retreats_array)
+
