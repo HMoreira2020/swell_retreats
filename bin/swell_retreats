@@ -2,6 +2,6 @@
 
 require './lib/environment.rb'
 
-SwellRetreats::CLI.new.call 
+CLI.new.call 
 
 

@@ -14,7 +14,7 @@ class Retreat
     #which sends it to initialize where each key/value pair is assigned as the objects attributes, AND adds the retreat to @@all array so all retreat objects are in @@all. make sure the attr_accessors match
   end 
   
-  def see_more_details(attributes_hash)
+  def add_more_details(attributes_hash)
     #attribute_hash = results from Scraper.scrape_retreat_details 
     attribute_hash.each{|key, value| self.send(("#{key}="), value)}
   end 

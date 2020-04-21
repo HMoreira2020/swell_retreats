@@ -1,5 +1,5 @@
-require_relative "./swell_retreats/retreat" 
-require_relative "./swell_retreats/scraper"
+require_relative "./retreat" 
+require_relative "./scraper"
 
 class CLI 
   def call 
@@ -20,7 +20,19 @@ class CLI
     Retreat.all.each.with_index(1) do |retreat, index| 
       puts "#{index}. #{retreat.name} - #{retreat.dates} - #{retreat.availability}"
     end
+  end
+  
+  # should this be in retreat clasS?     
+  # def add_details_to_retreats
+  #   Retreat.all.each do |retreat| 
+  #     details = Scraper.scrape_retreat_details(retreat_url) #where do I get this url if it varies based on what they enter in the cli 
+  #     Retreat.add_more_details(details)
+  #   end 
+  # end 
       
+  # def see_more_details
+  #   Retreats
+  # end 
 
   def retreat_menu  
     input = '' 
