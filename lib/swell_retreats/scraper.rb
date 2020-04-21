@@ -16,7 +16,7 @@ class Scraper
         :name => retreat.css("td.rs-title").text.strip,
         :dates => retreat.css("td.rs-dates").text.strip,
         :availability => retreat.css("td.rs-availability-words").text.strip, 
-        # :retreat_url => retreat.css("td.rs-show-more-link a").attribute("href").value
+        :url => retreat.css("td a").attribute("href").value.strip 
       }
       retreats_array << retreat_hash 
       binding.pry 
