@@ -20,7 +20,7 @@ class Retreat
    
     
   def self.all 
-    @@all
+    @@all.uniq
   end
   
 
