@@ -19,7 +19,6 @@ class Scraper
         :url => retreat.css("td a").attribute("href").value.strip 
       }
       retreats_array << retreat_hash 
-      binding.pry 
     end
     retreats_array
   end 
@@ -30,14 +29,17 @@ class Scraper
   def self.scrape_retreat_details(retreat_url) 
     page = Nokogiri::HTML(open(retreat_url))
     retreat_details_hash = {}
-    retreat_details_hash[:program_name]= page.css(), 
-    retreat_details_hash[:accomodations] = page.css().text,
-    retreat_details_hash[:description] = page.css().text,
-    retreat_details_hash[:single_price] = page.css(),
-    retreat_details_hash[:double_price] = page.css()
+    retreat_details_hash[:program_name]= page.css("h1.rs-program-title").text.strip, 
+    retreat_details_hash[:description] = page.css("p.rs-program-datetime").text.strip,
+    retreat_details_hash[:program_date] = page.css("p.rs-program-date").text.strip,
+    retreat_details_hash[:single_price] = page.css("div.rs-program-price ul li:nth-child(n+2)").text,
+    retreat_details_hash[:double_price] = page.css("div.rs-program-price ul li").first.text 
     retreat_details_hash 
   end   
   
 
 end 
+
+self.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/")
+self.scrape_retreat_details("https://www.swellwomen.com/trips/772/swellwomen-maui-surf-yoga-live-bliss-coaching/")
 
