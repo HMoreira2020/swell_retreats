@@ -5,9 +5,10 @@ class CLI
   def call 
     puts "Welcome to Swell Women's Surf Retreats" 
     make_retreats 
-    list_retreats
     add_details_to_retreats
+    list_retreats
     retreat_menu
+    add_details_to_retreats
     goodbye  
   end 
   
@@ -17,6 +18,7 @@ class CLI
   end
   
    def add_details_to_retreats #sends to retreat#add_retreat_details which needs the details_hash argument 
+   puts "adding details"
     Retreat.all.each do |retreat| 
       details_hash = Scraper.scrape_retreat_details(retreat.url) #can I have retreat.url as an argument here?
       retreat.add_retreat_details(details_hash)
@@ -35,8 +37,6 @@ class CLI
     input = '' 
     until input == "exit" 
       puts "Type the number of retreat you'd like to see more about"
-      puts "Or type 'list' to see the list again"
-      puts "Or type 'exit' to exit the program" 
       input = gets.strip.downcase 
       
       if input.to_i > 0 
@@ -49,9 +49,10 @@ class CLI
         puts "Single-Occupancy Price: #{the_retreat.single_price}" 
         puts "Double-Occupancy Price: #{the_retreat.double_price}" 
         puts "Availability: #{the_retreat.availability}"
-      elsif input == "list" 
+        puts "Would you like to see the list again?" 
+      elsif input == "y" 
         list_retreats
-      elsif input == "exit"
+      elsif input == "exit" || "n" 
         exit 
       else 
         puts "I'm not sure what you want, please enter list or exit:"
