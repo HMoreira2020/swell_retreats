@@ -3,7 +3,8 @@ require_relative "./scraper"
 
 class CLI 
   def call 
-    puts "Welcome to Swell Women's Surf Retreats" 
+    puts "Welcome to Swell Women's Surf Retreats!" 
+    puts "" 
     make_retreats 
     # add_details_to_retreats
     list_retreats
@@ -32,16 +33,19 @@ class CLI
   def list_retreats 
     puts "Here are our upcoming Swell Women's Retreats:"
     Retreat.all.each.with_index(1) do |retreat, index| 
+      puts "    #{index}. #{retreat.name}"
+      puts "       #{retreat.dates}"
       puts ""
-      puts "#{index}. #{retreat.name} - #{retreat.dates}"
-      puts "" 
     end
   end
   
   def retreat_menu  
     input = '' 
     until input == "exit" 
-      puts "Type the number of retreat you'd like to see more about or type 'list' to see the list again:"
+      puts "---- Enter the number of the retreat you'd like to see more about: "
+      puts "---- Enter 'list' to see the list again:"
+      puts "---- Enter 'exit' to exit the program:"
+      puts "" 
       input = gets.strip.downcase 
       
       if input.to_i > 0 
@@ -59,13 +63,18 @@ class CLI
   end 
     
   def show_details(retreat) 
-    puts "Program Name: #{retreat.program_name}" 
-    puts "Dates: #{retreat.program_date}" 
+    puts "            Program Name:" 
+    puts "#{retreat.program_name}" 
+    puts "            Dates:" 
+    puts "#{retreat.program_date}"
     puts "#{retreat.location}" 
-    puts "Description: #{retreat.description}"
+    puts "            Description:"
+    puts "#{retreat.description}"
+    puts "            Pricing:" 
     puts "Single-Occupancy Price: #{retreat.single_price}" 
     puts "Double-Occupancy Price: #{retreat.double_price}" 
-    puts "Availability: #{retreat.availability}"
+    puts "          Availability: #{retreat.availability}"
+    puts "" 
   end
 
   def goodbye 
