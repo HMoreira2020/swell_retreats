@@ -22,7 +22,6 @@ class SwellRetreats::Retreat
   end
   
 
-
 end 
 
 

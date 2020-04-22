@@ -1,8 +1,9 @@
 # SwellRetreats
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/swell_retreats`. To experiment with that code, run `bin/console` for an interactive prompt.
+Explore women's surf retreats offered by SwellWomen.  
 
-TODO: Delete this and the text above, and describe your gem
+Uses open-uri and nokogiri to get data from SwellWomen.com, creates new instances of Ruby classes to represent the data and uses an interactive CLI to make the data accessible for the user. 
+
 
 ## Installation
 
