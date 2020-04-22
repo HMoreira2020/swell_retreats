@@ -7,7 +7,6 @@ class CLI
     puts "Welcome to Swell Women's Surf Retreats!".colorize(:light_blue)  
     puts "" 
     make_retreats 
-    # add_details_to_retreats
     list_retreats
     retreat_menu
     goodbye  
@@ -17,14 +16,6 @@ class CLI
     retreats_array = Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/") 
     Retreat.create_from_collection(retreats_array) 
   end
-  
-  # def add_details_to_retreats #sends to retreat#add_retreat_details which needs the details_hash argument 
-  # puts "adding details"
-  #   Retreat.all.each do |retreat| 
-  #     details_hash = Scraper.scrape_retreat_details(retreat.url) #can I have retreat.url as an argument here?
-  #     retreat.add_retreat_details(details_hash)
-  #   end 
-  # end 
   
   def add_details_to_retreat(retreat)
       details_hash = Scraper.scrape_retreat_details(retreat.url) 

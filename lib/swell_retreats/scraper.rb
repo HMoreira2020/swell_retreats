@@ -23,7 +23,6 @@ class Scraper
   end 
   
 
-
   def self.scrape_retreat_details(url) 
     page = Nokogiri::HTML(open(url))
     retreat_details_hash = {
