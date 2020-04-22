@@ -2,7 +2,7 @@
 
 Explore women's surf retreats offered by SwellWomen.  
 
-Uses open-uri and nokogiri to get data from SwellWomen.com, creates new instances of Ruby classes to represent the data and uses an interactive CLI to make the data accessible for the user. 
+Demonstrates use of open-uri and nokogiri to retrieve data from a women's surf retreat site, creates new instances of Ruby classes to represent the data and uses an interactive CLI to make the data accessible for the user. 
 
 
 ## Installation
@@ -23,7 +23,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To test this gem, clone down this repo and run:
+
+cd swell_retreats 
+bundle install
+
+To start the CLI app run:
+
+./bin/swell_retreats 
 
 ## Development
 
