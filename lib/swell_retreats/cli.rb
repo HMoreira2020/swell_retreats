@@ -44,10 +44,8 @@ class SwellRetreats::CLI
         show_details(the_retreat)
       elsif input == "list" 
         list_retreats
-      elsif input == "exit"
-        exit 
       else 
-        puts "I'm not sure what you want, please enter list or exit:"
+        puts "I'm not sure what you want, please enter list or exit:" unless input == "exit"
       end 
     end 
   end 
