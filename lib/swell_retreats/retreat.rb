@@ -10,7 +10,6 @@ class SwellRetreats::Retreat
   
   def self.create_from_collection(retreats_array) 
     retreats_array.each{|retreat| SwellRetreats::Retreat.new(retreat)}  
-    #which sends it to initialize where each key/value pair is assigned as the objects attributes, AND adds the retreat to @@all array so all retreat objects are in @@all. make sure the attr_accessors match
   end 
   
   def add_retreat_details(details_hash)
