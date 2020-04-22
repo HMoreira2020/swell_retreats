@@ -2,7 +2,10 @@ require 'colorize'
 
 class SwellRetreats::CLI 
   def call 
-    puts "Welcome to Swell Women's Surf Retreats!".colorize(:light_blue)  
+    puts "          Welcome to Swell Women's Surf Retreats!".colorize(:light_blue) 
+    puts "Our Boutique Surf & Yoga Retreats are designed to introduce you to our coaching"
+    puts "philosophies while our intensive Wellness Retreats offer a heavy emphasis on"
+    puts "wellness and personalized goal-setting and guidance." 
     puts "" 
     make_retreats 
     list_retreats
@@ -45,7 +48,7 @@ class SwellRetreats::CLI
       elsif input == "list" 
         list_retreats
       else 
-        puts "I'm not sure what you want, please enter list or exit:" unless input == "exit"
+        puts "I'm not sure what you want, please enter list or exit:".colorize(:red) unless input == "exit"
       end 
     end 
   end 
