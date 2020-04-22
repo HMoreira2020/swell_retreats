@@ -1,5 +1,5 @@
 require_relative "../swell_retreats/scraper.rb"
-class Retreat 
+class SwellRetreats::Retreat 
   attr_accessor :name, :location, :dates, :price, :description, :availability, :url, :program_name, :program_date, :location, :single_price, :double_price 
   
   @@all = [] 
@@ -10,7 +10,7 @@ class Retreat
   end 
   
   def self.create_from_collection(retreats_array) 
-    retreats_array.each{|retreat| Retreat.new(retreat)}  
+    retreats_array.each{|retreat| SwellRetreats::Retreat.new(retreat)}  
     #which sends it to initialize where each key/value pair is assigned as the objects attributes, AND adds the retreat to @@all array so all retreat objects are in @@all. make sure the attr_accessors match
   end 
   
@@ -20,7 +20,7 @@ class Retreat
    
     
   def self.all 
-    @@all.uniq
+    @@all
   end
   
 

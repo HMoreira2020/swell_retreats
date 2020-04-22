@@ -2,7 +2,7 @@ require_relative "./retreat"
 require_relative "./scraper"
 require 'colorize' 
 
-class CLI 
+class SwellRetreats::CLI 
   def call 
     puts "Welcome to Swell Women's Surf Retreats!".colorize(:light_blue)  
     puts "" 
@@ -13,18 +13,18 @@ class CLI
   end 
   
   def make_retreats
-    retreats_array = Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/") 
-    Retreat.create_from_collection(retreats_array) 
+    retreats_array = SwellRetreats::Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/") 
+    SwellRetreats::Retreat.create_from_collection(retreats_array) 
   end
   
   def add_details_to_retreat(retreat)
-      details_hash = Scraper.scrape_retreat_details(retreat.url) 
+      details_hash = SwellRetreats::Scraper.scrape_retreat_details(retreat.url) 
       retreat.add_retreat_details(details_hash)
   end 
   
   def list_retreats 
     puts "Here are our upcoming Swell Women's Retreats:".colorize(:light_blue)
-    Retreat.all.each.with_index(1) do |retreat, index| 
+    SwellRetreats::Retreat.all.each.with_index(1) do |retreat, index| 
       puts "    #{index}. #{retreat.name}"
       puts "       #{retreat.dates}"
       puts ""
@@ -41,7 +41,7 @@ class CLI
       input = gets.strip.downcase 
       
       if input.to_i > 0 
-        the_retreat = Retreat.all[input.to_i - 1]
+        the_retreat = SwellRetreats::Retreat.all[input.to_i - 1]
         add_details_to_retreat(the_retreat)
         show_details(the_retreat)
       elsif input == "list" 

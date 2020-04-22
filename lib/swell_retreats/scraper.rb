@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-class Scraper
+class SwellRetreats::Scraper
   attr_accessor :name, :dates, :availability, :url 
   
  
@@ -39,6 +39,5 @@ class Scraper
   
 end 
 
-Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/")
-Scraper.scrape_retreat_details("https://www.swellwomen.com/trips/784/rote-island-surf-yoga-retreat-open-to-men-women/")
+
 
