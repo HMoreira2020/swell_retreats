@@ -59,6 +59,7 @@ class CLI
     puts "#{retreat.program_name}" 
     puts "            Dates:".colorize(:light_blue)  
     puts "#{retreat.program_date}"
+    puts "            Location:".colorize(:light_blue) 
     puts "#{retreat.location}" 
     puts "            Description:".colorize(:light_blue) 
     puts "#{retreat.description}"

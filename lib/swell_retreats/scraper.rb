@@ -29,7 +29,7 @@ class Scraper
       :program_name => page.css("h1.rs-program-title").text.strip, 
       :description => page.css("p.rs-program-datetime").text.strip,
       :program_date => page.css("p.rs-program-date").text.strip,
-      :location => page.css("p.rs-program-location").text.strip,
+      :location => page.css("p.rs-program-location").text.strip[10..-1],
       :single_price => page.css("div.rs-program-price ul > li:nth-child(n+2)").first.text.strip,
       :double_price => page.css("div.rs-program-price ul > li").first.text.strip 
     }
