@@ -30,13 +30,13 @@ class Scraper
       :description => page.css("p.rs-program-datetime").text.strip,
       :program_date => page.css("p.rs-program-date").text.strip,
       :location => page.css("p.rs-program-location").text.strip,
-      :single_price => page.css("div.rs-program-price ul li:nth-child(n+2)").text.strip,
-      :double_price => page.css("div.rs-program-price ul li").first.text.strip 
+      :single_price => page.css("div.rs-program-price ul > li:nth-child(n+2)").first.text.strip,
+      :double_price => page.css("div.rs-program-price ul > li").first.text.strip 
     }
     retreat_details_hash 
   end   
   
-
+  
 end 
 
 Scraper.scrape_homepage("https://www.swellwomen.com/portfolios/coaching-retreats/")
