@@ -1,4 +1,3 @@
-require_relative "../swell_retreats/scraper.rb"
 class SwellRetreats::Retreat 
   attr_accessor :name, :location, :dates, :price, :description, :availability, :url, :program_name, :program_date, :location, :single_price, :double_price 
   

@@ -1,5 +1,3 @@
-require_relative "./retreat" 
-require_relative "./scraper"
 require 'colorize' 
 
 class SwellRetreats::CLI 
