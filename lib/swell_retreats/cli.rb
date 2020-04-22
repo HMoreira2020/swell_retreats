@@ -1,9 +1,10 @@
 require_relative "./retreat" 
 require_relative "./scraper"
+require 'colorize' 
 
 class CLI 
   def call 
-    puts "Welcome to Swell Women's Surf Retreats!" 
+    puts "Welcome to Swell Women's Surf Retreats!".colorize(:light_blue)  
     puts "" 
     make_retreats 
     # add_details_to_retreats
@@ -31,7 +32,7 @@ class CLI
   end 
   
   def list_retreats 
-    puts "Here are our upcoming Swell Women's Retreats:"
+    puts "Here are our upcoming Swell Women's Retreats:".colorize(:light_blue)
     Retreat.all.each.with_index(1) do |retreat, index| 
       puts "    #{index}. #{retreat.name}"
       puts "       #{retreat.dates}"
@@ -42,9 +43,9 @@ class CLI
   def retreat_menu  
     input = '' 
     until input == "exit" 
-      puts "---- Enter the number of the retreat you'd like to see more about: "
-      puts "---- Enter 'list' to see the list again:"
-      puts "---- Enter 'exit' to exit the program:"
+      puts "---- Enter the number of the retreat you'd like to see more about: ".colorize(:light_blue)
+      puts "---- Enter 'list' to see the list again:".colorize(:light_blue)
+      puts "---- Enter 'exit' to exit the program:".colorize(:light_blue)
       puts "" 
       input = gets.strip.downcase 
       
@@ -63,17 +64,18 @@ class CLI
   end 
     
   def show_details(retreat) 
-    puts "            Program Name:" 
+    puts "            Program Name:".colorize(:light_blue) 
     puts "#{retreat.program_name}" 
-    puts "            Dates:" 
+    puts "            Dates:".colorize(:light_blue)  
     puts "#{retreat.program_date}"
     puts "#{retreat.location}" 
-    puts "            Description:"
+    puts "            Description:".colorize(:light_blue) 
     puts "#{retreat.description}"
-    puts "            Pricing:" 
+    puts "            Pricing:".colorize(:light_blue)  
     puts "Single-Occupancy Price: #{retreat.single_price}" 
     puts "Double-Occupancy Price: #{retreat.double_price}" 
-    puts "          Availability: #{retreat.availability}"
+    puts "          Availability:".colorize(:light_blue)
+    puts "              #{retreat.availability}"
     puts "" 
   end
 
