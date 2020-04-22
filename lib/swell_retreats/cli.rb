@@ -41,19 +41,13 @@ class CLI
   def retreat_menu  
     input = '' 
     until input == "exit" 
-      puts "Type the number of retreat you'd like to see more about or type 'list' to see the list again"
+      puts "Type the number of retreat you'd like to see more about or type 'list' to see the list again:"
       input = gets.strip.downcase 
       
       if input.to_i > 0 
         the_retreat = Retreat.all[input.to_i - 1]
         add_details_to_retreat(the_retreat)
-        puts "Program Name: #{the_retreat.program_name}" 
-        puts "Dates: #{the_retreat.program_date}" 
-        puts "#{the_retreat.location}" 
-        puts "Description: #{the_retreat.description}"
-        puts "Single-Occupancy Price: #{the_retreat.single_price}" 
-        puts "Double-Occupancy Price: #{the_retreat.double_price}" 
-        puts "Availability: #{the_retreat.availability}"
+        show_details(the_retreat)
       elsif input == "list" 
         list_retreats
       elsif input == "exit"
@@ -64,6 +58,15 @@ class CLI
     end 
   end 
     
+  def show_details(retreat) 
+    puts "Program Name: #{retreat.program_name}" 
+    puts "Dates: #{retreat.program_date}" 
+    puts "#{retreat.location}" 
+    puts "Description: #{retreat.description}"
+    puts "Single-Occupancy Price: #{retreat.single_price}" 
+    puts "Double-Occupancy Price: #{retreat.double_price}" 
+    puts "Availability: #{retreat.availability}"
+  end
 
   def goodbye 
     puts "See you on your next Swell Retreat!" 
