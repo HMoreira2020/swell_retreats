@@ -48,7 +48,7 @@ class SwellRetreats::CLI
       elsif input == "list" 
         list_retreats
       else 
-        puts "I'm not sure what you want, please enter list or exit:".colorize(:red) unless input == "exit"
+        puts "I'm not sure what you want, please enter one of the following:".colorize(:red) unless input == "exit"
       end 
     end 
   end 
