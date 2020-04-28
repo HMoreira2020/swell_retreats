@@ -59,7 +59,7 @@ class SwellRetreats::CLI
     puts "            Dates:".colorize(:light_blue)  
     puts "#{retreat.program_date}"
     puts "            Location:".colorize(:light_blue) 
-    retreat.location.nil? ? (puts "TBD"):(puts "#{retreat.location}")
+    retreat.location.nil? ? (puts "See website for location information."):(puts "#{retreat.location}")
     puts "            Description:".colorize(:light_blue) 
     puts "#{retreat.description}"
     puts "            Pricing:".colorize(:light_blue)  
@@ -67,6 +67,8 @@ class SwellRetreats::CLI
     puts "Double-Occupancy Price: #{retreat.double_price}" 
     puts "          Availability:".colorize(:light_blue)
     puts "              #{retreat.availability}"
+    puts "            Website:".colorize(:light_blue)
+    puts "#{retreat.url}"
     puts "" 
   end
 
