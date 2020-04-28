@@ -36,7 +36,7 @@ class SwellRetreats::CLI
     end
   end
   
-  def menu 
+  def menu_options
       puts "---- Enter the number of the retreat you'd like to see more about: ".colorize(:light_blue)
       puts "---- Enter 'list' to see the list again:".colorize(:light_blue)
       puts "---- Enter 'exit' to exit the program:".colorize(:light_blue)
@@ -46,7 +46,7 @@ class SwellRetreats::CLI
   def retreat_menu  
     input = '' 
     until input == "exit" 
-      menu 
+      menu_options
       input = gets.strip.downcase 
       if input.to_i > 0 
         the_retreat = SwellRetreats::Retreat.all[input.to_i - 1]
