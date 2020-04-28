@@ -59,7 +59,7 @@ class SwellRetreats::CLI
     puts "            Dates:".colorize(:light_blue)  
     puts "#{retreat.program_date}"
     puts "            Location:".colorize(:light_blue) 
-    puts "#{retreat.location}" 
+    retreat.location.nil? ? (puts "TBD"):(puts "#{retreat.location}")
     puts "            Description:".colorize(:light_blue) 
     puts "#{retreat.description}"
     puts "            Pricing:".colorize(:light_blue)  
