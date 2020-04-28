@@ -2,15 +2,19 @@ require 'colorize'
 
 class SwellRetreats::CLI 
   def call 
+    greeting 
+    make_retreats 
+    list_retreats
+    retreat_menu
+    goodbye  
+  end 
+  
+  def greeting 
     puts "          Welcome to Swell Women's Surf Retreats!".colorize(:light_blue) 
     puts "Our Boutique Surf & Yoga Retreats are designed to introduce you to our coaching"
     puts "philosophies while our intensive Wellness Retreats offer a heavy emphasis on"
     puts "wellness and personalized goal-setting and guidance." 
     puts "" 
-    make_retreats 
-    list_retreats
-    retreat_menu
-    goodbye  
   end 
   
   def make_retreats
