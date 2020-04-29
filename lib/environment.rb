@@ -5,6 +5,6 @@ require_relative "./swell_retreats/scraper"
 require 'open-uri'
 require 'nokogiri'
 require "pry" 
+require 'colorize' 
 
-module SwellRetreats 
-end 
+

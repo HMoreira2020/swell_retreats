@@ -1,5 +1,3 @@
-require 'colorize' 
-
 class SwellRetreats::CLI 
   def call 
     greeting 
@@ -48,9 +46,9 @@ class SwellRetreats::CLI
     until input == "exit" 
       menu_options
       input = gets.strip.downcase 
-      if input.to_i > 0 
+      if input.to_i > 0 && input.to_i <= Retreat.all.length 
         the_retreat = SwellRetreats::Retreat.all[input.to_i - 1]
-        add_details_to_retreat(the_retreat)
+        add_details_to_retreat(the_retreat) if !the_retreat.program_name 
         show_details(the_retreat)
       elsif input == "list" 
         list_retreats
